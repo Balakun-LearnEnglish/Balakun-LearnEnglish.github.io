@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Balakun - Excercise 1</title>
+<title>Balakun - Excercise 1 - Level A1</title>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,21 +19,28 @@
 <script src="../js/imageMapResizer.min.js"></script>
 </head>
 <body>
-<h1>Balakun - Excercise 1</h1>
-Level: A1<br/>
-Go over the items and try to write their names<br/><hr><br/>
-<img class="overlayimage order0" src="imgs/PreparingHamburger.png" id="whole" usemap="#image-map">
+<h1>Balakun - Excercise 1 - Level A1</h1>
+<input type="radio" name="mode" onclick="changeMode(0)" checked>Go over the items and try to write their names
+<input type="radio" name="mode" onclick="changeMode(1)">Find an quickly an item
 
+
+<br/><hr><br/>
+<div style="position: relative;">
+	<img class="overlayimage order0" src="imgs/PreparingHamburger.png" id="whole" usemap="#image-map">
+	<div id="GameMessage" class="GameMessage">Find: Apron</div>
+	<div id="Countdown" class="Countdown"></div>
+	<div id="Results" class="Results"></div>
+</div>
 <map name="image-map">
     <area target="" alt="Hands" title="Hand" href="javascript:clickOver('Hands')" coords="62,302,53,250,71,211,97,199,130,201,154,218,179,256,181,295,217,335,250,339,319,379,396,447,373,471,350,501,348,528,345,563,198,534,147,451,114,415" shape="poly">
     <area target="" alt="Sweater" title="Sweater" href="javascript:clickOver('Sweater')" coords="52,299,23,211,0,152,0,-1,156,0,190,87,188,279,155,213,100,194,60,213" shape="poly">
     <area target="" alt="Wall" title="Wall" href="javascript:clickOver('Wall')" coords="2,459,147,452,113,423,49,299,0,168" shape="poly">
-    <area target="" alt="Table" title="Table" href="javascript:clickOver('Table')" coords="3,510,125,519,85,553,81,594,147,624,343,636,401,687,659,660,759,670,809,641,939,634,1015,613,1017,760,3,763" shape="poly">
-    <area target="" alt="Paper" title="Paper" href="javascript:clickOver('Paper')" coords="93,591,93,550,149,521,464,593,607,573,625,495,715,509,735,525,840,533,919,523,1019,533,1019,603,940,623,789,625,759,659,625,645,401,677,361,621,159,619" shape="poly">
+    <area target="" alt="Wood Table" title="Wood Table" href="javascript:clickOver('WoodTable')" coords="3,510,125,519,85,553,81,594,147,624,343,636,401,687,659,660,759,670,809,641,939,634,1015,613,1017,760,3,763" shape="poly">
+    <area target="" alt="Parchment Paper" title="Parchment Paper" href="javascript:clickOver('ParchmentPaper')" coords="93,591,93,550,149,521,464,593,607,573,625,495,715,509,735,525,840,533,919,523,1019,533,1019,603,940,623,789,625,759,659,625,645,401,677,361,621,159,619" shape="poly">
     <area target="" alt="Apron" title="Apron" href="javascript:clickOver('Apron')" coords="191,291,193,81,160,0,649,2,659,91,666,101,646,168,593,215,508,269,433,284,385,326,372,372,383,381,469,388,470,416,397,437,323,371,243,328,217,325" shape="poly">
-    <area target="" alt="Buns" title="Buns" href="javascript:clickOver('Buns')" coords="367,565,352,522,442,540,479,559,524,534,548,547,582,546,609,533,600,564,532,579,451,586" shape="poly">
-    <area target="" alt="Buns" title="Buns" href="javascript:clickOver('Buns')" coords="379,374,405,317,452,286,519,281,571,293,598,311,597,368,607,398,489,388" shape="poly">
-    <area target="" alt="Buns" title="Buns" href="javascript:clickOver('Buns')" coords="731,308,763,273,815,250,873,255,901,265,931,297,937,329,743,325" shape="poly">
+    <area target="" alt="Bun" title="Bun" href="javascript:clickOver('Bun')" coords="367,565,352,522,442,540,479,559,524,534,548,547,582,546,609,533,600,564,532,579,451,586" shape="poly">
+    <area target="" alt="Bun" title="Bun" href="javascript:clickOver('Bun')" coords="379,374,405,317,452,286,519,281,571,293,598,311,597,368,607,398,489,388" shape="poly">
+    <area target="" alt="Bun" title="Bun" href="javascript:clickOver('Bun')" coords="731,308,763,273,815,250,873,255,901,265,931,297,937,329,743,325" shape="poly">
     <area target="" alt="Mayo" title="Mayo" href="javascript:clickOver('Mayo')" coords="387,463,409,445,495,421,525,425,548,447,492,461,400,466" shape="poly">
     <area target="" alt="Patty" title="Patty" href="javascript:clickOver('Patty')" coords="481,518,411,511,375,495,379,465,433,467,500,461,559,443,593,459,593,495,536,509" shape="poly">
     <area target="" alt="Cheese" title="Cheese" href="javascript:clickOver('Cheese')" coords="478,555,395,510,473,517,559,506" shape="poly">
@@ -52,20 +59,28 @@ Go over the items and try to write their names<br/><hr><br/>
 
 
 <audio id="Apron"> <source src="Sounds/Apron.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Bracelet"> <source src="Sounds/Bracelet.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Cheese"> <source src="Sounds/Cheese.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Hamburger"> <source src="Sounds/Hamburger.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Hands"> <source src="Sounds/Hands.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Ketchup"> <source src="Sounds/Ketchup.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Lettuce"> <source src="Sounds/Lettuce.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Mayo"> <source src="Sounds/Mayo.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="ParchmentPaper"> <source src="Sounds/ParchmentPaper.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Patty"> <source src="Sounds/Patty.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Stick"> <source src="Sounds/Stick.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Sweater"> <source src="Sounds/Sweater.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Tomato"> <source src="Sounds/Tomato.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="Wall"> <source src="Sounds/Wall.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
-<audio id="WoodTable"> <source src="Sounds/WoodTable.ogg" type="audio/ogg">Your browser does not support the audio tag.</audio>
+<audio id="Bracelet"> <source src="Sounds/Bracelet.ogg" type="audio/ogg"></audio>
+<audio id="Cheese"> <source src="Sounds/Cheese.ogg" type="audio/ogg"></audio>
+<noaudio id="Hamburger"> <source src="Sounds/Hamburger.ogg" type="audio/ogg"></noaudio>
+<audio id="Hands"> <source src="Sounds/Hands.ogg" type="audio/ogg"></audio>
+<audio id="Ketchup"> <source src="Sounds/Ketchup.ogg" type="audio/ogg"></audio>
+<audio id="Lettuce"> <source src="Sounds/Lettuce.ogg" type="audio/ogg"></audio>
+<audio id="Mayo"> <source src="Sounds/Mayo.ogg" type="audio/ogg"></audio>
+<audio id="Bun"> <source src="Sounds/Bun.ogg" type="audio/ogg"></audio>
+<audio id="ParchmentPaper"> <source src="Sounds/ParchmentPaper.ogg" type="audio/ogg"></audio>
+<audio id="Patty"> <source src="Sounds/Patty.ogg" type="audio/ogg"></audio>
+<audio id="Stick"> <source src="Sounds/Stick.ogg" type="audio/ogg"></audio>
+<audio id="Sweater"> <source src="Sounds/Sweater.ogg" type="audio/ogg"></audio>
+<noaudio id="Tomato"> <source src="Sounds/Tomato.ogg" type="audio/ogg"></noaudio>
+<audio id="Wall"> <source src="Sounds/Wall.ogg" type="audio/ogg"></audio>
+<audio id="WoodTable"> <source src="Sounds/WoodTable.ogg" type="audio/ogg"></audio>
+<audio id="Find"> <source src="Sounds/Find.ogg" type="audio/ogg"></audio>
+<audio id="Yes"> <source src="Sounds/Yes.ogg" type="audio/ogg"></audio>
+<audio id="No"> <source src="Sounds/No.ogg" type="audio/ogg"></audio>
+<audio id="GoodJob"> <source src="Sounds/GoodJob.ogg" type="audio/ogg"></audio>
+<audio id="Perfect"> <source src="Sounds/Perfect.ogg" type="audio/ogg"></audio>
+<audio id="YouCanDoBetter"> <source src="Sounds/YouCanDoBetter.ogg" type="audio/ogg"></audio>
+<audio id="YouMissed"> <source src="Sounds/YouMissed.ogg" type="audio/ogg"></audio>
 
 <div id="popup" class="popup" style="display:none">
 	<table>
@@ -77,46 +92,71 @@ Go over the items and try to write their names<br/><hr><br/>
 </div>
 
 <script>
-
+var clicked = null; // Item that was clicked (item from names object)
+var pos = { x:0, y:0 }; // Position of the mouse
+var toFind = null; // Item to be found (id of the audio)
+var gameMode = 0; // Type of game
+var intervalId = 0; // Used to keep the id of the interval for the countdown
+var countdown = 0; // Current value of the countdown
+var allToFind = {};
+var total = 0;
+var found = 0;
+// List of all items (English name, Ukrainian name, ID of the audio object)
 var names = {
 	/* En name, UA Name, Sound file */
 	Apron:		[ "Apron", "Фартух", "Apron" ],
 	Bracelet:	[ "Bracelet", "Браслет", "Bracelet" ],
 	Cheese:		[ "Cheese", "Сир", "Cheese" ],
-	Buns:			[ "Bun", "булочки", "Bun" ],
-	Hamburger:[ "Hamburger", "гамбургер", "Hamburger" ],
+	Bun:			[ "Bun", "булочки", "Bun" ],
+//	Hamburger:[ "Hamburger", "гамбургер", "Hamburger" ],
 	Hands:		[ "Hands", "руки", "Hands" ],
 	Ketchup:	[ "Ketchup", "Кетчуп", "Ketchup" ],
 	Lettuce:	[ "Lettuce", "листя салату", "Lettuce" ],
 	Mayo:			[ "Mayo (or Mayonnaise)", "майонез", "Mayo" ],
-	Paper:		[ "Parchment Paper", "пергаментний папір", "ParchmentPaper" ],
+	ParchmentPaper:		[ "Parchment Paper", "пергаментний папір", "ParchmentPaper" ],
 	Patty:		[ "Patty", "Котлета", "Patty" ],
 	Stick:		[ "Stick", "паличка", "Stick" ],
 	Sweater:	[ "Sweater", "светр", "Sweater" ],
-	Tomato:		[ "Tomato", "помідор", "Tomato" ],
+//	Tomato:		[ "Tomato", "помідор", "Tomato" ],
 	Wall:			[ "Wall", "стіна", "Wall" ],
-	Table:		[ "Wood Table", "Дерев'яний стіл", "WoodTable" ],
+	WoodTable:[ "Wood Table", "Дерев'яний стіл", "WoodTable" ],
 };
 
 
-var clicked = null;
+
 function clickOver(part) {
-	var pop = document.getElementById('popup');
-	var px = pos.x - pop.offsetWidth / 2;
-	var maxx = document.getElementById("whole").offsetWidth - pop.offsetWidth * 1.5;
-	if (px < 0) px = 0;
-	if (px > maxx) px = maxx;
-	pop.style.left = px + "px";
-	pop.style.top = pos.y;
-	pop.style.display = "block";
-	clicked = names[part];
-	document.getElementById("EnglishWord").innerHTML = "&nbsp; Listen";
-	document.getElementById("UkrainianWord").innerHTML = "&nbsp; Українською";
-	if (!clicked) {
-		pop.style.display = "none";
-		console.log(part);
+	if (gameMode == 0) {
+		var pop = $('#popup');
+		var px = pos.x - pop[0].offsetWidth / 2;
+		var maxx = document.getElementById("whole").offsetWidth - pop.offsetWidth * 1.5;
+		if (px < 0) px = 0;
+		if (px > maxx) px = maxx;
+		pop.css("left", px + "px");
+		pop.css("top", pos.y);
+		pop.css("display", "block");
+		clicked = names[part];
+		$("#EnglishWord").html("&nbsp; Listen");
+		$("#UkrainianWord").html("&nbsp; Українською");
+		if (!clicked) {
+			pop.css("display", "none");
+			console.log(part);
+		}
+	}
+	else if (gameMode == 1) {
+		if (part == toFind) {
+			$("#Yes")[0].play();
+			$("#Countdown").html("").css("display", "none");
+			if (intervalId) { clearInterval(intervalId); intervalId = 0; }
+			found++;
+			$("#Results").html(found + "/" + total).css("display", "block");
+			// Wait 2 seconds and then pick another item. If all items are done show results
+		}
+		else {
+			$("#No")[0].play();
+		}
 	}
 }
+
 
 function play() {
 	if (!clicked) return;
@@ -130,15 +170,90 @@ function reveal() {
 	document.getElementById("UkrainianWord").innerHTML = "&nbsp; " + clicked[1];
 }
 
-var pos = { x:0, y:0 };
 
 document.onmousemove = function(e){
 	pos.x = e.pageX;
 	pos.y = e.pageY;
 };
 
+
+function changeMode(mode) {
+	if (gameMode == mode) return;
+	gameMode = mode;
+	if (mode == 0) {
+		// Stop the game
+		gameMode = 0;
+		if (intervalId) { clearInterval(intervalId); intervalId = 0; }
+		$("#Countdown").html("").css("display", "none");
+		$("#Results").html("").css("display", "none");
+		$("#GameMessage").html("").css("display", "none");
+		return;
+	}
+	
+	allToFind = { ...names };
+	total = Object.keys(allToFind).length;
+	found = 0;
+	$("#Results").html("0/" + total).css("display", "block");
+	$("#popup").css("display", "block");
+	
+	// Pick a random item
+	pickNext();
+}
+
+function pickNext() {
+	var remaining = Object.keys(allToFind).length;
+	if (remaining == 0) {
+		if (found == total) $("#Perfect")[0].play();
+		else if (found < total / 2) $("#YouCanDoBetter")[0].play();
+		else $("#GoodJob")[0].play();
+		return;
+	}
+	var key = parseInt(Math.random() * remaining);
+	var key =  Object.keys(allToFind)[key];
+	var item = allToFind[key];
+	delete allToFind[key];
+	// Show a message on top-left of image
+	$("#GameMessage").html("Find: " + item[0]).css("display", "block");
+	
+	// Play a sound with the name of the item
+	toFind = item[2];
+	document.getElementById("Find").play(); // The countdown will start when the audio is fully played
+}
+
 $('map').imageMapResize();
 
+$('audio').on("ended", function(e) {
+	if (gameMode != 1) return;
+	// Do the countdown
+	$("#Countdown").html("10").css("display", "block");
+	countdown = 10;
+	if (intervalId) clearInterval(intervalId);
+	intervalId = setInterval(doCountdown, 1000);
+});
+$('#Find').off("ended").on("ended", function(e) {
+	if (!toFind) return;
+	var audio = document.getElementById(toFind);
+	if (audio) audio.play();
+});
+$('#Yes').off("ended").on("ended", pickNext);
+$('#YouMissed').off("ended").on("ended", pickNext);
+$('#No').off("ended");
+$('#GoodJob').off("ended");
+$('#Perfect').off("ended");
+$('#YouCanDoBetter').off("ended");
+
+
+function doCountdown() {
+	countdown--;
+	$("#Countdown").html(countdown);
+	if (countdown <= 0) {
+		$("#Countdown").html("").css("display", "none");
+		if (intervalId) clearInterval(intervalId);
+		intervalId = 0;
+		$("#YouMissed")[0].play();
+		return;
+	}
+}
 </script>
 
 </body>
