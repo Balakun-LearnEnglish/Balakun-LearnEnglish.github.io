@@ -101,6 +101,7 @@ var countdown = 0; // Current value of the countdown
 var allToFind = {};
 var total = 0;
 var found = 0;
+var speaking = false;
 // List of all items (English name, Ukrainian name, ID of the audio object)
 var names = {
 	/* En name, UA Name, Sound file */
@@ -125,6 +126,7 @@ var names = {
 
 
 function clickOver(part) {
+	if (speaking) return;
 	if (gameMode == 0) {
 		var pop = $('#popup');
 		var px = pos.x - pop[0].offsetWidth / 2;
@@ -145,6 +147,7 @@ function clickOver(part) {
 	else if (gameMode == 1) {
 		if (part == toFind) {
 			$("#Yes")[0].play();
+			speaking = true;
 			$("#Countdown").html("").css("display", "none");
 			if (intervalId) { clearInterval(intervalId); intervalId = 0; }
 			found++;
@@ -153,6 +156,7 @@ function clickOver(part) {
 		}
 		else {
 			$("#No")[0].play();
+			speaking = true;
 		}
 	}
 }
@@ -161,7 +165,10 @@ function clickOver(part) {
 function play() {
 	if (!clicked) return;
 	var audio = document.getElementById(clicked[2]);
-	if (audio) audio.play();
+	if (audio) {
+		audio.play();
+		speaking = true;
+	}
 	document.getElementById("EnglishWord").innerHTML = "&nbsp; " + clicked[0];
 }
 
@@ -194,18 +201,20 @@ function changeMode(mode) {
 	total = Object.keys(allToFind).length;
 	found = 0;
 	$("#Results").html("0/" + total).css("display", "block");
-	$("#popup").css("display", "block");
+	$("#popup").css("display", "none");
 	
 	// Pick a random item
 	pickNext();
 }
 
 function pickNext() {
+	speaking = false;
 	var remaining = Object.keys(allToFind).length;
 	if (remaining == 0) {
 		if (found == total) $("#Perfect")[0].play();
 		else if (found < total / 2) $("#YouCanDoBetter")[0].play();
 		else $("#GoodJob")[0].play();
+		speaking = true;
 		return;
 	}
 	var key = parseInt(Math.random() * remaining);
@@ -218,11 +227,13 @@ function pickNext() {
 	// Play a sound with the name of the item
 	toFind = item[2];
 	document.getElementById("Find").play(); // The countdown will start when the audio is fully played
+	speaking = true;
 }
 
 $('map').imageMapResize();
 
 $('audio').on("ended", function(e) {
+	speaking = false;
 	if (gameMode != 1) return;
 	// Do the countdown
 	$("#Countdown").html("10").css("display", "block");
@@ -233,15 +244,21 @@ $('audio').on("ended", function(e) {
 $('#Find').off("ended").on("ended", function(e) {
 	if (!toFind) return;
 	var audio = document.getElementById(toFind);
-	if (audio) audio.play();
+	if (audio) {
+		audio.play();
+		speaking = true;
+	}
 });
 $('#Yes').off("ended").on("ended", pickNext);
 $('#YouMissed').off("ended").on("ended", pickNext);
-$('#No').off("ended");
-$('#GoodJob').off("ended");
-$('#Perfect').off("ended");
-$('#YouCanDoBetter').off("ended");
+$('#No').off("ended").on("ended", stopSpeaking);
+$('#GoodJob').off("ended").on("ended", stopSpeaking);
+$('#Perfect').off("ended").on("ended", stopSpeaking);
+$('#YouCanDoBetter').off("ended").on("ended", stopSpeaking);
 
+function stopSpeaking() {
+	speaking = false;
+}
 
 function doCountdown() {
 	countdown--;
