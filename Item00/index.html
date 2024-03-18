@@ -26,7 +26,7 @@
 
 <br/><hr><br/>
 <div style="position: relative;">
-	<img class="overlayimage order0" src="imgs/PreparingHamburger.png" id="whole" usemap="#image-map">
+	<img class="order0" src="imgs/PreparingHamburger.png" id="whole" usemap="#image-map">
 	<div id="GameMessage" class="GameMessage">Find: Apron</div>
 	<div id="Countdown" class="Countdown"></div>
 	<div id="Results" class="Results"></div>
@@ -71,12 +71,14 @@
 <audio id="Patty"> <source src="Sounds/Patty.ogg" type="audio/ogg"></audio>
 <audio id="Stick"> <source src="Sounds/Stick.ogg" type="audio/ogg"></audio>
 <audio id="Sweater"> <source src="Sounds/Sweater.ogg" type="audio/ogg"></audio>
-<noaudio id="Tomato"> <source src="Sounds/Tomato.ogg" type="audio/ogg"></noaudio>
+<audio id="Tomato"> <source src="Sounds/Tomato.ogg" type="audio/ogg"></noaudio>
 <audio id="Wall"> <source src="Sounds/Wall.ogg" type="audio/ogg"></audio>
 <audio id="WoodTable"> <source src="Sounds/WoodTable.ogg" type="audio/ogg"></audio>
 <audio id="Find"> <source src="Sounds/Find.ogg" type="audio/ogg"></audio>
-<audio id="Yes"> <source src="Sounds/Yes.ogg" type="audio/ogg"></audio>
-<audio id="No"> <source src="Sounds/No.ogg" type="audio/ogg"></audio>
+<audio id="Yes1"> <source src="Sounds/Yes1.ogg" type="audio/ogg"></audio>
+<audio id="Yes2"> <source src="Sounds/Yes2.ogg" type="audio/ogg"></audio>
+<audio id="No1"> <source src="Sounds/No1.ogg" type="audio/ogg"></audio>
+<audio id="No2"> <source src="Sounds/No2.ogg" type="audio/ogg"></audio>
 <audio id="GoodJob"> <source src="Sounds/GoodJob.ogg" type="audio/ogg"></audio>
 <audio id="Perfect"> <source src="Sounds/Perfect.ogg" type="audio/ogg"></audio>
 <audio id="YouCanDoBetter"> <source src="Sounds/YouCanDoBetter.ogg" type="audio/ogg"></audio>
@@ -146,7 +148,7 @@ function clickOver(part) {
 	}
 	else if (gameMode == 1) {
 		if (part == toFind) {
-			$("#Yes")[0].play();
+			$("#Yes" + parseInt(Math.random() * 1.999 + 1))[0].play();
 			speaking = true;
 			$("#Countdown").html("").css("display", "none");
 			if (intervalId) { clearInterval(intervalId); intervalId = 0; }
@@ -155,7 +157,7 @@ function clickOver(part) {
 			// Wait 2 seconds and then pick another item. If all items are done show results
 		}
 		else {
-			$("#No")[0].play();
+			$("#No" + parseInt(Math.random() * 1.999 + 1))[0].play();
 			speaking = true;
 		}
 	}
@@ -249,9 +251,11 @@ $('#Find').off("ended").on("ended", function(e) {
 		speaking = true;
 	}
 });
-$('#Yes').off("ended").on("ended", pickNext);
+$('#Yes1').off("ended").on("ended", pickNext);
+$('#Yes2').off("ended").on("ended", pickNext);
+$('#No1').off("ended").on("ended", stopSpeaking);
+$('#No2').off("ended").on("ended", stopSpeaking);
 $('#YouMissed').off("ended").on("ended", pickNext);
-$('#No').off("ended").on("ended", stopSpeaking);
 $('#GoodJob').off("ended").on("ended", stopSpeaking);
 $('#Perfect').off("ended").on("ended", stopSpeaking);
 $('#YouCanDoBetter').off("ended").on("ended", stopSpeaking);
@@ -271,6 +275,17 @@ function doCountdown() {
 		return;
 	}
 }
+
+function displayWindowSize() {
+	var ratio = 1024.0/760;
+	var screen = window.innerWidth /window.innerHeight;
+	if (ratio >= screen) $("#whole").addClass("overlayimageW").removeClass("overlayimageH");
+	else $("#whole").addClass("overlayimageH").removeClass("overlayimageW");
+}
+
+window.addEventListener("resize", displayWindowSize);
+displayWindowSize();
+
 </script>
 
 </body>

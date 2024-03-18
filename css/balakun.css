@@ -35,8 +35,11 @@ button > p { text-align: left; padding-left: 1em; }
 	height: 6em;
 }
 
-.overlayimage {
-	width: 100%;
+.overlayimageH {
+  height: 95%;
+}
+.overlayimageW {
+  width: 95%;
 }
 
 
