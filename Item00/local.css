@@ -37,7 +37,7 @@
 }
 
 .GameMessage {
-	position: absolute;
+	position: fixed;
 	top:8px;
 	left:8px;
 	z-index: 1000;
@@ -49,7 +49,7 @@
 	display: none;
 }
 .Countdown {
-	position: absolute;
+	position: fixed;
 	top:8px;
 	right:8px;
 	z-index: 1000;
@@ -62,7 +62,7 @@
 	display: none;
 }
 .Results {
-	position: absolute;
+	position: fixed;
 	bottom:8px;
 	right:8px;
 	z-index: 1000;
