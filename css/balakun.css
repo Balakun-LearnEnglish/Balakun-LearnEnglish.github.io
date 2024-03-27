@@ -39,15 +39,6 @@ button > p { text-align: left; padding-left: 1em; }
   height: 95%;
 }
 
-.visibleLink {
-	text-decoration: underline !important;
-	color: blue;
-}
-.visibleLink:hover {
-	text-decoration: underline !important;
-	color: green;
-}
-
 .overlayimageW {
   width: 95%;
 }
@@ -57,3 +48,87 @@ button > p { text-align: left; padding-left: 1em; }
 	display: flex;
 	flex-direction: row;
 }
+
+/*************************** Discord page *****************************/
+
+body.DiscordBodyLight {
+	background-color:#bfc1c4;
+	font-size:1.5em;
+	text-shadow: .5px .5px 1px blue;
+	color: #000;
+}
+
+body.DiscordBodyLight h1 {
+	text-shadow: 4px 5px 2px #aab030;
+}
+body.DiscordBodyLight h2 {
+	text-shadow: 3px 4px 1px #aab030;
+}
+
+body.DiscordBodyDark {
+	background-color:#1f2124;
+	font-size:1.5em;
+	text-shadow: .5px .5px 1px lightblue;
+	color: #ddd;
+}
+
+body.DiscordBodyDark h1 {
+	text-shadow: 4px 5px 2px #2240d0;
+}
+body.DiscordBodyDark h2 {
+	text-shadow: 3px 4px 1px #2240d0;
+}
+
+.GoDarkTheme {
+	position:fixed;
+	right:1em;
+	top:1em;
+	width:5em;
+	height:3em;
+	background-color:#444;
+	border:3px solid #333;
+	border-radius: 5px;
+	color: #222;
+	font-size:.75em;
+	padding: 0;
+}
+.GoDarkTheme:hover {
+	color: #565;
+	font-weight: bold;
+}
+.GoLightTheme {
+	position:fixed;
+	right:1em;
+	top:1em;
+	width:5em;
+	height:3em;
+	background-color:#ccc;
+	border:3px solid #ddd;
+	border-radius: 5px;
+	color: #eee;
+	font-size:.75em;
+	padding: 0;
+}
+.GoLightTheme:hover {
+	color: #a9a;
+	font-weight: bold;
+}
+
+body.DiscordBodyLight a.visibleLink {
+	text-decoration: underline !important;
+	color: blue;
+}
+body.DiscordBodyLight a.visibleLink:hover {
+	text-decoration: underline !important;
+	color: green;
+}
+
+body.DiscordBodyDark a.visibleLink {
+	text-decoration: underline !important;
+	color: #aef;
+}
+body.DiscordBodyDark a.visibleLink:hover {
+	text-decoration: underline !important;
+	color: #eeb;
+}
+

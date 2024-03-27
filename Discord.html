@@ -14,27 +14,32 @@
 <link rel="shortcut icon" sizes="32x32" href="imgs/balakunLogo192.png">
 <link rel="shortcut icon" sizes="16x16" href="imgs/balakunLogo192.png">
 <link rel="shortcut icon" href="imgs/favicon.ico">
+<script src="js/jquery-3.7.1.slim.min.js"></script>
 </head>
-<body style="background-color:#bfc1c4;font-size:1.5em;text-shadow: 1px 1px blue;">
-<h1 style="text-shadow: 4px 5px 2px #aab030;">Discord</h1>
+<body class="DiscordBodyLight">
+<h1 style="font-size:4em">Discord</h1>
 <img src="imgs/Discord logo.png" style="width:10em"><br><br>
 Discord is a social media chat application.<br>
-You can use it on mobile (Andorid and iPhone), on a web browser, or as a desktop application on a PC.<br><br>
+You can use it on mobile (Andorid and iPhone), on a web browser, or as a desktop application on a PC or Mac.<br><br>
 
 With Discord you can speak with friends by exchanging messages or using a microphone.<br><br>
 Discord is a free application and you can download it here:&nbsp;<a class="visibleLink" href="https://discord.com/download">https://discord.com/download</a><br>
-P.S. the web version does not need to be downloaded
+P.S. the web version does not need to be downloaded.
 
-<h1 style="text-shadow: 4px 5px 2px #aab030;">How to use it?</h1>
-<h2 style="text-shadow: 3px 4px 1px #aab030;">Create an account</h2>
-Discrod is organizaed in "Servers". A "server" is a group of people with a series of channels where to chat and exchange images and other files.<br><br>
+<br><br><hr>
 
-After you downloaded and install it, you should create your account.
+<h1>How to use Discord?</h1>
+<h2>Create an account</h2>
+After you downloaded and installed it, you should create your account.<br>
+<i>show example</i><br>
 Crate an account, give it a name (this name will be how people will see you) and add an image to represent yourself (avatar.)<br><br>
 
 After this you can join a server. Usually you need an invite link to join a server. For example this link is to join the Balakun server: <a class="visibleLink" href="https://discord.gg/Hm2aC9BxRT">https://discord.gg/Hm2aC9BxRT</a><br><br>
 
-<h2 style="text-shadow: 3px 4px 1px #aab030;">How servers work</h2>
+<h2>How servers work</h2>
+Discord is organizaed in "Servers". A <i>server</i> is a group of people with a series of channels where to chat and exchange images and other files.<br><br>
+
+
 Each server has a name and an icon. For exampel Balakun server is like this:<br>
 <img src="imgs/Balakun Discord Server.png" style="width:30em">&nbsp;(desktop version)<br><br>
 <img src="imgs/Balakun Discord Server Mobile.png" style="width:20em">&nbsp;(mobile version)<br><br>
@@ -47,19 +52,56 @@ Inside a channel you have people sending messages, like any other chat applicati
 To send a new message, just type your message on the bottom of the application.<br>
 
 
-<h2 style="text-shadow: 3px 4px 1px #aab030;">Emojis</h2>
+<h2>Emojis</h2>
 You can add emojis to an existing message (or create a message with just an emoji.)<br>
 To add an emoji you have to select the message and then use the icon: <img src="imgs/AddEmojiButton.png"><br><br>
 
-<h2 style="text-shadow: 3px 4px 1px #aab030;">Attach files</h2>
+<h2>Attach files</h2>
 You can add images and other files to a message. As long it is not an executable and it is not big, it will be attached to your message. Just drag and drop the image on Widnows application or use the <img src="imgs/AddImageButton.png"> on mobile.
 
-<h2 style="text-shadow: 3px 4px 1px #aab030;">Threads</h2>
+<h2>Threads</h2>
 In Discord, you can have a conversation over a message that was posted.<br>
 This feature is called <b>Threads</b>, you will continue to chat about the specific message without adding new messages to the main channel.<br><br>
 You can see that a thread is available if you see this specific situation:<br>
 <img src="imgs/ThreadExample.png" style="width:30em"><br><br>
 To create a new thread select the startng message and then use the button <img src="imgs/ThreadButton.png"><br><br>
 
+
+<h1>Private Messages (Direct Messages or DMs)</h1>
+todo...
+
+
+<h1>Voice Channels</h1>
+todo...
+
+
+<h1>Events</h1>
+todo...
+
+
+
+
+
+
+
+
+
+
+
+<button id="DarkThemeButton" class="GoDarkTheme" onclick="GoDark();">Dark</button>
+<button id="LightThemeButton" class="GoLightTheme" onclick="GoLight();" style="display:none;">Light</button>
+<script>
+function GoDark() {
+	$("body").removeClass("DiscordBodyLight").addClass("DiscordBodyDark");
+	$("#DarkThemeButton").css("display", "none");
+	$("#LightThemeButton").css("display", "block");
+}
+function GoLight() {
+	$("body").removeClass("DiscordBodyDark").addClass("DiscordBodyLight");
+	$("#DarkThemeButton").css("display", "block");
+	$("#LightThemeButton").css("display", "none");
+}
+
+</script>
 </body>
 </html>
