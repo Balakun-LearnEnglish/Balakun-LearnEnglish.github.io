@@ -38,6 +38,16 @@ button > p { text-align: left; padding-left: 1em; }
 .overlayimageH {
   height: 95%;
 }
+
+.visibleLink {
+	text-decoration: underline !important;
+	color: blue;
+}
+.visibleLink:hover {
+	text-decoration: underline !important;
+	color: green;
+}
+
 .overlayimageW {
   width: 95%;
 }
